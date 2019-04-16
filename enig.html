@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="enig.css">
+  
+    <title>Document</title>
+</head>
+<body>
+    <div class="section">
+        <div class="menu-block-drag">
+            <nav class="menu-nav-drag">
+                <a href="#" class="menu-nav-link-drag">Home</a>
+                <a href="#" class="menu-nav-link-drag">Reg</a>
+                <a href="#" class="menu-nav-link-drag">Photo</a>
+                <a href="#" class="menu-nav-link-drag">Zad</a>
+            </nav>
+            <a href="#" class="menu-btn">
+                <span></span>
+            </a>
+        </div>
+    </div>
+    
+    <script>
+        let but = document.getElementsByClassName('menu-btn');
+        let s = but[0];
+        s.onclick=()=>{
+            switch(s.className){
+                case 'menu-btn':
+                    s.className = "menu-btn-close";
+                    document.getElementsByClassName('menu-nav-drag')[0].className="menu-nav-active-drag";
+                    break;
+                case 'menu-btn-close':
+                    s.className = "menu-btn";
+                    document.getElementsByClassName('menu-nav-active-drag')[0].className="menu-nav-drag";
+                    break;
+            }
+            
+        };
+        
+    </script>
+</body>
+</html>
