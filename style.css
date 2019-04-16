@@ -1,0 +1,306 @@
+/*          *******VISITKA*******        */
+.wrap{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left:0;
+    top:0;
+    background-color: #BBDEFB;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card{
+    width: 300px;
+    height: 300px;
+    
+    position: relative;
+    perspective: 1000px;
+}
+.front, .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top:0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 1s;
+    backface-visibility: hidden;
+}
+.front{
+    background-color: #fff;
+}
+.back{
+    background-color: #BDBDBD;
+    transform: rotateY(180deg);
+    display: hidden;
+}
+.card:hover .front{transform: rotateY(180deg);}
+.card:hover .back{transform: rotateY(360deg); display: flex;}
+
+/* )=_=) phone, tablet and desctop template */
+.section{
+    background-color: #f2395a;
+    color:#fff;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    perspective: 1000px;
+}
+.heading{
+    margin-left: 40%;
+}
+.phone,
+.tablet,
+.desctop{
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 13px 13px 32px 0 rgba(242,57,90,.3);
+    transition: 1s;
+    transform: translateY(100%);
+}
+.section:hover .phone, 
+.section:hover .tablet,
+.section:hover .desctop{
+    transform: translateY(20px) rotateY(15deg) rotateX(15deg); 
+}
+.phone{
+    width: 200px;
+    height: 280px;
+    left: 5%;
+    bottom:0;
+    background: #fff url('') center no-repeat;
+    z-index: 3;
+    transition-delay: 0.2s; 
+}
+.tablet{
+    width: 360px;
+    height: 380px;
+    background: #fff url('') center no-repeat;
+    bottom:0;
+    left:10%;
+    transition-delay: 0.4s;
+    z-index: 1;
+}
+
+.desctop{
+    width: 580px;
+    height: 480px;
+    background: #fff url('') center no-repeat;
+    bottom:0;
+    transition-delay: 0.6s;
+    left:15%;
+}
+/*          *********SIDES 3D*********         */
+body{
+    margin:0;
+    background-color: #3d385a;
+}
+.section{
+    perspective: 1000px;
+}
+.container{
+    flex-wrap: wrap;
+    width: 680px;
+    margin:auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    transition: 1s;
+    transform-style: preserve-3d; 
+    transform: rotateX(55deg) rotateZ(-45deg) rotateY(10deg);
+}
+
+.container-origin{
+    transform: rotate(0);
+}
+
+img{
+    max-width: 100%;
+}
+
+.card{
+    width: 200px;
+    margin: 10px;
+    transition: 0.3s;
+}
+.card:hover{
+    cursor: pointer;
+    transform: translateZ(20px)
+}
+
+/*  ************BUTTON_MENU************  */
+body{
+    font-family: sans-serif;
+    margin: 0;
+} 
+.section{
+    height: 100vh;
+    background-color: #7b1fa2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.menu-btn,
+.menu-btn-close,
+.menu-btn-next-right,
+.menu-btn-next-left{
+    width: 50px;
+    height: 50px;
+    background: #fff;
+    border-radius: 50%;
+    display: block;
+    position: relative;
+    
+}
+.menu-btn span,
+.menu-btn span::before,
+.menu-btn span::after,
+.menu-btn-close span,
+.menu-btn-close span::after,
+.menu-btn-close span::before,
+.menu-btn-next-right span,
+.menu-btn-next-right span::after,
+.menu-btn-next-right span::before,
+.menu-btn-next-left span,
+.menu-btn-next-left span::after,
+.menu-btn-next-left span::before{
+    position: absolute;
+    top:50%; margin-top: -1px;
+    left: 50%; margin-left: -10px;
+    height: 2px;
+    width: 20px;
+    background-color: #222;
+}
+.menu-btn span::before,
+.menu-btn span::after,
+.menu-btn-close span::after,
+.menu-btn-close span::before,
+.menu-btn-next-right span::after,
+.menu-btn-next-right span::before,
+.menu-btn-next-left span::after,
+.menu-btn-next-left span::before{
+    content: '';
+    display: block;
+    transition: 0.5s;
+}
+.menu-btn span::before{
+    transform: translateY(-5px);
+}
+.menu-btn span::after{
+    transform: translateY(5px);
+}
+/***************************/
+/** ***menu-btn-close***  **/
+/***************************/
+.menu-btn-close span{
+    height: 0;
+}
+.menu-btn-close span::after{
+    transform: rotate(-45deg);
+}
+.menu-btn-close span::before{
+    transform: rotate(45deg);
+}
+/************************************/
+/** ********menu-btn-next-(right/left)********  **/
+/************************************/
+.menu-btn-next-right span::after{
+    margin-left: 1%;
+    transform-origin: right bottom;
+    transform: rotate(-35deg);
+    width: 10px; 
+    
+}
+.menu-btn-next-right span::before{
+    margin-left: 1%;
+    transform-origin: right top;
+    transform: rotate(35deg);
+    width: 10px;
+    
+}
+
+.menu-btn-next-left span::after{
+    transform: rotate(35deg);
+    width: 10px;
+    transform-origin: left bottom;
+}
+.menu-btn-next-left span::before{
+    transform: rotate(-35deg);
+    width: 10px;
+    transform-origin: left top;
+}
+/**     ***menu-block***    */
+.menu-block{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.menu-nav-link{
+    display: inline-block;
+    text-decoration: none;
+    color:#fff;
+    margin-right: 20px;
+}
+.menu-nav{
+    transition: 0.5s;
+    transform: translateX(50%);
+    transform-origin: right center;
+    opacity: 0;
+}
+.menu-nav-active{
+    transition: 0.5s;
+    transform: translateX(0%);
+    opacity: 1;     
+}
+/*************************************/
+/**     ***menu-block-drag***       **/
+/*************************************/
+.menu-block-drag{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    
+}
+.menu-nav-link-drag{
+    display: inline-block;
+    text-decoration: none;
+    color:#222;
+    margin-right: 20px;
+}
+.menu-nav-drag{
+    height: 50px;
+    background-color: #fff;
+    line-height: 50px;
+    padding-left: 20px;
+    padding-right: 40px;
+    margin-right: -25px;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    transition: 0.2s;
+    transform: translateX(100%);
+    transform-origin: right center;
+    opacity: 0;
+}
+.menu-nav-active-drag{
+    height: 50px;
+    background-color: #fff;
+    line-height: 50px;
+    padding-left: 20px;
+    padding-right: 40px;
+    margin-right: -25px;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    transition: 0.2s;
+    transform-origin: right center;
+    transform:  translateX(0%);
+    opacity: 1;     
+}
